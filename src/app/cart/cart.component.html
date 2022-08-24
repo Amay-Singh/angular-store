@@ -1,0 +1,30 @@
+<h3>Cart</h3>
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+    <table>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+               quantity
+            </th>
+            <th>
+                price
+            </th>
+            <th>
+               total
+            </th>
+        </tr>
+        <tr class="cart-item" *ngFor="let item of items">
+           <td>{{ item.name }}</td>
+           <td>{{ item.quantity }}</td>
+           <td>{{ item.price | currency }}</td> 
+           <td>{{ item.price * item.quantity | currency }}</td> 
+        </tr>
+    </table>
+      
+      <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+            <input type="hidden" />
+      </form>
+      <button class="button" type="submit">Purchase</button>
+</form>
